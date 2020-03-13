@@ -1,4 +1,4 @@
-import * as types from '.../types/babies';
+import * as types from '../types/babies';
 
 export const createBaby = (id, name, lastName) => ({
   type: types.BABY_CREATED,

@@ -21,7 +21,15 @@ const byId = (state = {}, action) => {
         [action.payload.id] : action.payload,
       };
     }
-    case types.BABY_SELECTED:{
+    default:{
+      return state;
+    }
+  }
+};
+
+const babySelected = (state= null, action) => {
+  switch (action.type) {
+    case types.BABY_SELECTED: {
       return action.payload;
     }
     default:{
@@ -33,6 +41,7 @@ const byId = (state = {}, action) => {
 const baby = combineReducers({
   order,
   byId,
+  babySelected,
 });
 
 export default baby;
@@ -43,3 +52,5 @@ export const getBaby = (state, id) => state.byId[id];
 export const getBabies = state => state.order.map(
   id => getBaby(state, id),
 ).filter(baby => baby != null);
+
+export const getSelectedBaby = state => state;

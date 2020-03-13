@@ -11,7 +11,10 @@ const eventToBaby = (state = {}, action) => {
       }
     }
     case types.EVENT_BABY_UNASSIGNED:{
-      return omit(state, action.payload.baby);
+      return {
+      ...state,
+      [action.payload.baby]: [...state.payload.baby].filter(event => event !==action.payload.event),
+      };
     }
     default:{
       return state;
