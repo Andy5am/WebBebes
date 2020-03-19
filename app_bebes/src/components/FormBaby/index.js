@@ -1,14 +1,23 @@
 import { v4 as uuidv4 } from 'uuid';
-import React, { useState, Fragment } from 'react';
+import React, { useState} from 'react';
 import { connect } from 'react-redux';
 import * as babyActions from '../../actions/babies';
+import * as selectors from '../../reducers';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
-
-const FormBaby = ({ onSubmit }) => {
+const FormBaby = ({ onSubmit, number }) => {
   const [name, changeValue1] = useState('');
   const [lastName, changeValue2] = useState('');
   return (
-    <Fragment>
+    <div className='baby-form'>
+      <div>{
+        number === 0 ? (
+          <h2>{'No hay bebés'}</h2>
+        ) : ''
+      }
+      </div>
+      <label>{'Agregar bebé'} </label>
       <input
         type="text"
         placeholder="Nombre"
@@ -21,17 +30,21 @@ const FormBaby = ({ onSubmit }) => {
         value={lastName}
         onChange={e => changeValue2(e.target.value)}
       />
+      <Link to={'/events'}>
       <button type="submit" onClick={
         () => onSubmit(name, lastName)
       }>
         {'Crear'}
       </button>
-    </Fragment>
+      </Link>
+    </div>
   );
 }
 
 export default connect(
-  undefined,
+  state => ({
+    number: selectors.getBabies(state).length,
+  }),
   dispatch => ({
     onSubmit(name, lastName) {
       dispatch(babyActions.createBaby(uuidv4(), name, lastName));

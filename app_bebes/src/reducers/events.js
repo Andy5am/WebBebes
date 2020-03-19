@@ -37,8 +37,8 @@ const byId = (state={}, action) => {
 };
 
 const events = combineReducers({
-  order,
   byId,
+  order,
 });
 
 export default events;

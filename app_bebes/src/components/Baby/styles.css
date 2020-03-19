@@ -1,0 +1,8 @@
+.baby-wrapper{
+  background: red;
+}
+
+.baby--selected{
+  background: blue;
+  transform: scale(0.8);
+}

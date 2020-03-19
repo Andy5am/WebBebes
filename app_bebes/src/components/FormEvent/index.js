@@ -1,19 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
-import React, { useState, Fragment } from 'react';
+import React, { useState} from 'react';
 import { connect } from 'react-redux';
 import * as eventActions from '../../actions/events';
 
 const FormEvent = ({ onSubmit }) => {
-  const [type, changeValue1] = useState('');
+  const [type, changeValue1] = useState('Siesta');
   const [note, changeValue2] = useState('');
   return (
-    <Fragment>
-      <input
-        type="text"
-        placeholder="Tipo"
-        value={type}
-        onChange={e => changeValue1(e.target.value)}
-      />
+    <div>
+      <label>Tipo de evento:</label>
+      <select onChange={e => changeValue1(e.target.value)} value={type}>
+        <option value={'Siesta'}>Siesta</option>
+        <option value={'Pacha'}>Pacha</option>
+        <option value={'Cambio de pañal (pipí)'}>Cambio de pañal (pipí)</option>
+        <option value={'Cambio de pañal (popó)'}>Cambio de pañal (popó)</option>
+        <option value={'Otro'}>Otro</option>
+      </select>
       <input
         type="text"
         placeholder="Notas"
@@ -25,7 +27,7 @@ const FormEvent = ({ onSubmit }) => {
       }>
         {'Crear'}
       </button>
-    </Fragment>
+    </div>
   );
 }
 

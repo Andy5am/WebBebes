@@ -53,4 +53,4 @@ export const getBabies = state => state.order.map(
   id => getBaby(state, id),
 ).filter(baby => baby != null);
 
-export const getSelectedBaby = state => state;
+export const getSelectedBaby = state => state.babySelected;

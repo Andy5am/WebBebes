@@ -7,5 +7,5 @@ export const createBaby = (id, name, lastName) => ({
 
 export const selectBaby = id => ({
   type: types.BABY_SELECTED,
-  payload: {id},
+  payload: id,
 });
