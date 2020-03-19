@@ -11,7 +11,7 @@ const order = (state=[], action) => {
       return [...state, action.payload.id];
     }
     case types.EVENT_DELETED: {
-      return [...state].pull(action.payload.id);
+      return pull(state, action.payload.id);
     }
     default:{
       return state;

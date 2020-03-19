@@ -1,9 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState} from 'react';
 import { connect } from 'react-redux';
+import * as selectors from '../../reducers';
 import * as eventActions from '../../actions/events';
+import * as eventToBabyActions from '../../actions/eventToBaby';
 
-const FormEvent = ({ onSubmit }) => {
+const FormEvent = ({ onSubmit , selectedBaby}) => {
   const [type, changeValue1] = useState('Siesta');
   const [note, changeValue2] = useState('');
   return (
@@ -23,7 +25,7 @@ const FormEvent = ({ onSubmit }) => {
         onChange={e => changeValue2(e.target.value)}
       />
       <button type="submit" onClick={
-        () => onSubmit(type, note)
+        () => onSubmit(type, note, selectedBaby)
       }>
         {'Crear'}
       </button>
@@ -32,10 +34,12 @@ const FormEvent = ({ onSubmit }) => {
 }
 
 export default connect(
-  undefined,
+  state => ({
+    selectedBaby: selectors.getSelectedBaby(state),
+  }),
   dispatch => ({
-    onSubmit(type, note) {
-      dispatch(eventActions.createEvent(uuidv4(),new Date(), type, note));
+    onSubmit(type, note, selectedBaby) {
+      dispatch(eventToBabyActions.assignEventToBaby(  dispatch(eventActions.createEvent(uuidv4(),new Date(), type, note, selectedBaby.id, selectedBaby.name)).payload.id,selectedBaby.id))
     },
   }),
 )(FormEvent);
