@@ -7,6 +7,7 @@ import * as actions from '../../actions/babies';
 
 const Baby = ({
   babyName,
+  lastName,
   isSelected = false,
   onClick,
 }) => (
@@ -19,7 +20,7 @@ const Baby = ({
   onClick = {onClick}
   >
     <div className="baby">
-      Nombre: {babyName}
+      {babyName+' '+lastName}
     </div>
   </div>
 );
@@ -27,6 +28,7 @@ const Baby = ({
 export default connect(
   (state, { index }) => ({
     babyName: index.name,
+    lastName: index.lastName,
     isSelected: selectors.getSelectedBaby(state) === index,
   }),
   (dispatch, {index}) => ({

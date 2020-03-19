@@ -10,6 +10,7 @@ const FormBaby = ({ onSubmit, number }) => {
   const [name, changeValue1] = useState('');
   const [lastName, changeValue2] = useState('');
   return (
+    <div className='baby-form-wrapper'>
     <div className='baby-form'>
       <div>{
         number === 0 ? (
@@ -17,26 +18,27 @@ const FormBaby = ({ onSubmit, number }) => {
         ) : ''
       }
       </div>
-      <label>{'Agregar bebé'} </label>
-      <input
+      <label className='baby-label'>{'Agregar bebé'} </label>
+      <input className='name-input'
         type="text"
         placeholder="Nombre"
         value={name}
         onChange={e => changeValue1(e.target.value)}
       />
-      <input
+      <input className='lastName-input'
         type="text"
         placeholder="Apellido"
         value={lastName}
         onChange={e => changeValue2(e.target.value)}
       />
       <Link to={'/events'}>
-      <button type="submit" onClick={
+      <button className='createBaby-button' type="submit" onClick={
         () => onSubmit(name, lastName)
       }>
         {'Crear'}
       </button>
       </Link>
+    </div>
     </div>
   );
 }
@@ -47,7 +49,7 @@ export default connect(
   }),
   dispatch => ({
     onSubmit(name, lastName) {
-      dispatch(babyActions.createBaby(uuidv4(), name, lastName));
+      dispatch(babyActions.selectBaby(dispatch(babyActions.createBaby(uuidv4(), name, lastName)).payload));
     },
   }),
 )(FormBaby);

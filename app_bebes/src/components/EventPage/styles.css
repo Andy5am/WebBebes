@@ -1,0 +1,8 @@
+.baby-manager{
+  display: flex;
+  flex-direction: row;
+}
+
+.page{
+  background: lightBlue;
+}

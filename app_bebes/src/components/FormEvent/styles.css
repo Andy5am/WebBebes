@@ -1,27 +1,19 @@
-.baby-form-wrapper{
+.event-form-wrapper{
   background: lightBlue;
 }
 
-.baby-form{
+.event-form{
   display: flex;
   flex-direction: column;
-  margin: 200px;
-  width: 150px;
+  width: 250px;
 }
-
-.name-input{
+.note-input{
   margin-top: 20px;
 }
 
-.lastName-input{
-  margin-top: 20px;
-}
 
-.baby-label{
-  margin-top: 50px;
-}
 
-.createBaby-button{
+.add-events-button{
   background: orange;
   margin-top: 20px;
   width: 100px;

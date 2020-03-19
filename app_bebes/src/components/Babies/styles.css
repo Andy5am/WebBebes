@@ -1,3 +1,9 @@
 .babies{
-  width: 300px;
+  background: lightBlue;
+}
+
+.babies-list{
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
 }

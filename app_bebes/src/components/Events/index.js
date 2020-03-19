@@ -13,7 +13,7 @@ const Events = ({number, assignedEvents, selectedBaby}) => (
     {
       number.length === 0 ? (
         <h1>
-          {'No hay acciones :('}
+          {'No hay eventos'}
         </h1>
       ) : (
         (number).map(

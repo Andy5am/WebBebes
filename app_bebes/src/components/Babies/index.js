@@ -13,6 +13,7 @@ const Babies = ({number}) => (
           {'No hay bebés'}
         </h2>
       ) : (
+        <div className='babies-list'> Bebes: {
         number.map(
           index => (
             <Baby
@@ -21,6 +22,7 @@ const Babies = ({number}) => (
             />
           ),
         )
+      }</div>
       )
     }
   </div>

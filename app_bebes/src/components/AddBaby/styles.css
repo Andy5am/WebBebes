@@ -1,0 +1,11 @@
+.add-baby-button{
+  background: orange;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.container{
+  background: lightBlue;
+}

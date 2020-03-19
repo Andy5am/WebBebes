@@ -1,8 +1,12 @@
 .baby-wrapper{
-  background: red;
+  background: lightBlue;
+  border-style:outset;
+  height: 50px;
+  font-size: 30px;
 }
 
 .baby--selected{
-  background: blue;
+  background: orange;
+  border-style: solid;
   transform: scale(0.8);
 }

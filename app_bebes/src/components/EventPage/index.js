@@ -3,12 +3,15 @@ import FormEvent from '../FormEvent';
 import React from 'react';
 import AddBaby from '../AddBaby';
 import Events from '../Events';
+import './styles.css';
 
 const EventPage = () => (
-  <div>
+  <div className='page'>
+    <div className='baby-manager'>
     <Babies/>
-    <FormEvent/>
     <AddBaby/>
+    </div>
+    <FormEvent/>
     <Events/>
   </div>
 );
